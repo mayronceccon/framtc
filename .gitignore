@@ -1,0 +1,5 @@
+.buildpath
+composer.lock
+vendor/*
+.settings/*
+.project

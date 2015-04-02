@@ -1,0 +1,37 @@
+<form class="form-horizontal" method="post" action="<?php echo $this->url('index/contato'); ?>">
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">E-mail:</label>  
+  <div class="col-md-5">
+  <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="assunto">Assunto:</label>  
+  <div class="col-md-5">
+  <input id="assunto" name="assunto" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="mensagem">Mensagem</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="enviar"></label>
+  <div class="col-md-4">
+    <button id="enviar" name="enviar" class="btn btn-success">Enviar</button>
+  </div>
+</div>
+
+</form>

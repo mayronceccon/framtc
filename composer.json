@@ -1,0 +1,34 @@
+{
+    "name": "mayronceccon/framtc",
+    "description": "Framtc - Frameword",   
+    "homepage": "https://bitbucket.org/mayronceccon/framtc",    
+    "authors": [
+        {
+            "name": "Mayron Ceccon",
+            "email": "mayron.ceccon@gmail.com",
+            "homepage": "http://mayronceccon.com.br",
+            "role": "developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": { 
+        	"Application\\" : "lib/Application/",
+			"ControllersLib\\" : "lib/Controllers/",
+			"Database\\" : "lib/Database/",
+			"Exception\\" : "lib/Exception/",
+			"ModelsLib\\" : "lib/Models/",
+			"Pages\\" : "lib/Pages/",
+			"Views\\" : "lib/Views/",
+			"Routes\\" : "lib/Routes/",
+			"Urls\\" : "lib/Urls/",
+			"Session\\" : "lib/Session/",
+			"Encryption\\" : "lib/Encryption/",
+			"Models\\" : "modules/Models/",
+			"Controllers\\" : "modules/Controllers/"
+        }
+    }
+}
