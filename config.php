@@ -26,6 +26,5 @@ define('__CSS__', __SITE__ . "static/css/");
 define('__JS__', __SITE__ . "static/js/");
 define('__IMG__', __SITE__ . "static/img/");
 
-
 //development OR production
 define('APPLICATION_ENV', 'development');

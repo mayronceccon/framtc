@@ -48,8 +48,8 @@ class Views
         if (file_exists($view)) {
             $this->view = $view;
         } else {
-            //throw new ExceptionL("View File '$view' don't exists");
-        	throw new ExceptionFramtc("Endereço não encontrado!");
+            throw new ExceptionFramtc("View File '$view' don't exists");
+        	//throw new ExceptionFramtc("Endereço não encontrado!");
         }
     }
 

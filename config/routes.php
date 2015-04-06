@@ -5,5 +5,6 @@ $routes = array(
 	'index/index' 	=> array('as' => 'index_2', 'controller' => 'IndexController', 'action' => 'indexAction'),
 	'index/produto' => array('as' => 'produtos', 'controller' => 'IndexController', 'action' => 'produtoAction'),
 	'index/contato' => array('as' => 'contato', 'controller' => 'IndexController', 'action' => 'contatoAction'),
-	'index/popular' => array('as' => 'popular', 'controller' => 'IndexController', 'action' => 'popularAction')
+	'index/popular' => array('as' => 'popular', 'controller' => 'IndexController', 'action' => 'popularAction'),
+	'admin'			=> array('as' => 'admin', 'controller' => 'AdminIndexController', 'action' => 'indexAction')
 );
