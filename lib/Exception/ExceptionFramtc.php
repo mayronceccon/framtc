@@ -4,7 +4,7 @@ namespace Exception;
 
 use \Exception;
 
-class ExceptionL extends Exception
+class ExceptionFramtc extends Exception
 {	
 	public function __construct($message)
 	{		

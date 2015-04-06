@@ -1,7 +1,7 @@
 <?php
 namespace Urls;
 
-use \Exception\ExceptionL;
+use \Exception\ExceptionFramtc;
 
 class Urls
 {	
@@ -37,7 +37,7 @@ class Urls
 				}
 			}
 		}else{
-			throw new ExceptionL('Informe um array de arquivos');
+			throw new ExceptionFramtc('Informe um array de arquivos');
 		}	
 	}
 	
@@ -50,7 +50,7 @@ class Urls
 				}
 			}
 		}else{
-			throw new ExceptionL('Informe um array de arquivos');
+			throw new ExceptionFramtc('Informe um array de arquivos');
 		}
 	}
 }

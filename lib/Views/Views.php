@@ -4,13 +4,13 @@ namespace Views;
 
 use \Urls\Urls;
 use \Routes\Routes;
-use \Exception\ExceptionL;
+use \Exception\ExceptionFramtc;
 
 class Views
 {   
     private $contents;
     private $view;
-    private $params;
+    private $params = array();
     private $template = "template";
     private $class = null;
     private $function = null;
@@ -49,7 +49,7 @@ class Views
             $this->view = $view;
         } else {
             //throw new ExceptionL("View File '$view' don't exists");
-        	throw new ExceptionL("Endereço não encontrado!");
+        	throw new ExceptionFramtc("Endereço não encontrado!");
         }
     }
 
@@ -58,9 +58,11 @@ class Views
         return $this->view;
     }
 
-    public function setParams(Array $params)
+    public function setParams($key = null, $value = null)
     {
-        $this->params = $params; 
+        if (!is_null($key)) {
+    		$this->params[$key] = $value;	
+        } 
     }
 
     public function getParams()
@@ -101,13 +103,12 @@ class Views
 
     public function __set($key, $value)
     {
-        $this->setParams(array($key => $value));
+        $this->setParams($key, $value);
     }
 
     public function __get($key)
     {
         $params = $this->getParams();
-
         return $params[$key];
     }
     

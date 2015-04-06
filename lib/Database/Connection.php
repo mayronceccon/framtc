@@ -11,10 +11,12 @@ class Connection{
 	private function __construct(){}
 	
 	public static function getInstance()
-	{
-		global $database;		
+	{	
 		try{
 			if (!isset(self::$instance)) {
+				
+				$database = FindDatabase::getInstancia()->getDatabase();				
+								
 				$user 		= $database['user'];
 				$password 	= $database['password'];
 				$dbname 	= $database['dbname'];

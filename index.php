@@ -5,7 +5,4 @@ include 'config.php';
 include 'bootstrap.php';
 
 use \Application\Application;
-
-$application = new Application();
-$application->init();
-?>
+Application::init();

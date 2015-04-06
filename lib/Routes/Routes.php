@@ -2,68 +2,41 @@
 
 namespace Routes;
 
-use \Exception\ExceptionL;
-use \Session\Session;
+use \Exception\ExceptionFramtc;
+use \Routes\FindRoutes;
 
 class Routes
 {
 	public $controller;  
-    public $action;
-    private $_htaccess = TRUE;	
-    private $routes = null;
+    public $action;   
     
     public function __construct(){}
-    
-    public static function setRoutes($params = array())
-    {    	
-   		Session::set('routes', $params);
-    }
-    
+        
     public function getRoutes()
     {
-    	return Session::get('routes');
+    	return FindRoutes::getInstancia()->getRoutes();
     }
     
     private function loadRoute()
     {
-    	//global $routes;
-    	//$this->controller 	= ucfirst(isset($_REQUEST['controller']) ?  $_REQUEST['controller'] : 'Index');
-        //$this->action 		= isset($_REQUEST['action']) ?  $_REQUEST['action'] : 'index';
-        
         $url='';
-
-	    //nombre del directorio actual del script ejecutandose.
-	    //basename(dirname($_SERVER['SCRIPT_FILENAME']));
-	
-	    if ($this->_htaccess !== FALSE) {
-	        //no está funcionando bien si está en un subdirectorio web, por ej stynat.dyndns.org/subdir/
-	        // muestra el "subdir" como primer parámetro
-	        list($url) = explode('?',$_SERVER['REQUEST_URI']);
-	        $basepath = dirname($_SERVER['SCRIPT_NAME']);
-	        $basepath = ($basepath==='/')? $basepath: $basepath.'/';	       
-	        $url = substr($url,strlen($basepath));
-	    } else {
-	        if (isset($_SERVER['PATH_INFO'])) {
-	            $url = $_SERVER['PATH_INFO'];
-	            $url = preg_replace('|^/|','',$url);
-	        }
-	    }
-		
+		    
+        list($url) = explode('?',$_SERVER['REQUEST_URI']);
+        $basepath = dirname($_SERVER['SCRIPT_NAME']);
+        $basepath = ($basepath==='/')? $basepath: $basepath.'/';	       
+        $url = substr($url,strlen($basepath));
+	    		
 	    if ($url == false) {
 	    	$url = '/';
 	    }
 
 	    $routes = $this->getRoutes();
-	    
+	   	    
 	    if (!isset($routes[$url])) {
-	    	 throw new ExceptionL("Url não encontrada!");
+	    	 throw new ExceptionFramtc("Url não encontrada!");
 	    }
 	    
-	   	$route = $routes[$url];
-	   
-	    //$url = explode('/',$url);	   		    
-	    //$this->controller 	= (isset($url[0]) AND !empty($url[0])) ? ucfirst($url[0]) : 'Index';
-	    //$this->action 		= (isset($url[1]) AND !empty($url[1])) ? $url[1] : 'index';
+	   	$route = $routes[$url];	   
 	    
 	    $this->controller 	= $route['controller'];
 	    $this->action 		= $route['action'];
@@ -81,21 +54,21 @@ class Routes
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
         } else {
-            throw new ExceptionL('Arquivo '.$controllerFile.' nao encontrado');
+            throw new ExceptionFramtc('Arquivo '.$controllerFile.' nao encontrado');
         }
         
         $class = $this->controller;        
         if (class_exists($class)) {
             $objectClass = new $class;
         } else {
-            throw new ExceptionL("Classe '$class' nao existe no arquivo '$controllerFile'");
+            throw new ExceptionFramtc("Classe '$class' nao existe no arquivo '$controllerFile'");
         }
         
         $method = $this->action;              
         if (method_exists($objectClass,$method)) {
             $objectClass->$method();
         } else {
-            throw new ExceptionL("Metodo '$method' nao existe na classe $class'");
+            throw new ExceptionFramtc("Metodo '$method' nao existe na classe $class'");
         }
     }
     
