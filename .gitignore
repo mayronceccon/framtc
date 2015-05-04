@@ -4,3 +4,4 @@ vendor/*
 .settings/*
 .project
 config/development/*
+logs/*

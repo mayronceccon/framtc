@@ -30,7 +30,7 @@
 	    <div id="corpo">
 	        <div id="sepEsqcolCentral">	            
 	            <div id="colPrincipal" class="bordasArrend">
-	            	<? require_once $this->view;?>
+	            	<?php require_once $this->view;?>
 	            </div>
 	        </div>  
 	    </div>

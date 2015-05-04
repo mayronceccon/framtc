@@ -35,7 +35,7 @@
   
   <div class="text-center">
     <h1>Bootstrap starter template</h1>
-    <? require_once $this->view;?>
+    <?php require_once $this->view;?>
   </div>
   
 </div><!-- /.container -->
